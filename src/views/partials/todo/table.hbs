@@ -1,0 +1,36 @@
+<table>
+  <thead>
+    <tr>
+      <th>N.</th>
+      <th>Title</th>
+      <th>Description</th>
+      <th>Operations</th>
+    </tr>
+  </thead>
+  <tbody>
+    {{#each todos}}
+      <tr>
+        <td>
+          {{@index}}
+        </td>
+        <td>
+          {{title}}
+        </td>
+        <td>
+          <p>{{description}}</p>
+        </td>
+        <td>
+          {{#if done}}
+            <a href='/api/todo/{{_id}}/toggle'>Undone</a>
+          {{else}}
+            <a href='/api/todo/{{_id}}/toggle'>Done</a>
+          {{/if}}
+          <a href='/edit/{{_id}}'>Edit</a>
+          <a href='/api/todo/{{_id}}'>Delete</a>
+
+        </td>
+      </tr>
+    {{/each}}
+  </tbody>
+
+</table>

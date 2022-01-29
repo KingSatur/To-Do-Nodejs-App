@@ -3,6 +3,7 @@ import router from './routes/index.routes';
 import { engine } from 'express-handlebars';
 import path from 'path';
 import morgan from 'morgan';
+import database from './database';
 
 const app = express();
 
@@ -19,7 +20,9 @@ app.engine(
 );
 
 app.set('view engine', '.hbs');
-app.use(router);
 app.use(morgan('dev'));
+app.use(express.urlencoded({ extended: false }));
+
+app.use(router);
 
 export default app;

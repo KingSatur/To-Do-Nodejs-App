@@ -1,1 +1,13 @@
-<h1>Editing ToDo</h1>
+<form action='/api/todo/{{todo._id}}' method='post'>
+  <div>
+    <label for='title'>Title</label>
+    <input type='text' name='title' id='title' value='{{todo.title}}' />
+  </div>
+  <div>
+    <label for='description'>Description</label>
+    <textarea name='description' id='description' cols='30' rows='10'>
+      {{todo.description}}
+    </textarea>
+  </div>
+  <button type='submit'>Save</button>
+</form>
