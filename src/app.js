@@ -24,6 +24,7 @@ app.use(morgan('dev'));
 app.use(express.urlencoded({ extended: false }));
 
 app.use(router);
+//In order to use static files in our backend
 app.use(express.static(path.join(__dirname, 'public')));
 
 export default app;
