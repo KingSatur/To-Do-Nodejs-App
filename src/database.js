@@ -1,8 +1,9 @@
 import moongose from 'mongoose';
+import config from './config';
 
 (async () => {
   try {
-    const db = await moongose.connect('mongodb://localhost:27017/toDoNodejs', {
+    const db = await moongose.connect(config.MONGODB_URI, {
       useNewUrlParser: true,
     });
     console.log('Connected to:', db.connection.name);

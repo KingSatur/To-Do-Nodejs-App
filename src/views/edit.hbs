@@ -1,13 +1,35 @@
-<form action='/api/todo/{{todo._id}}' method='post'>
-  <div>
-    <label for='title'>Title</label>
-    <input type='text' name='title' id='title' value='{{todo.title}}' />
+<div class='container'>
+  <div class='row'>
+    <div class='col-md-5 offset-md-3'>
+      <div class='card card-body bg-darl p-4 text-light bg-dark'>
+        <h1>Update toDo</h1>
+        <form action='/api/todo/{{todo._id}}' method='post'>
+          <div class='mb-3'>
+            <label for='title'>Title</label>
+            <input
+              class='form-control rounded-0 bg-dark text-light'
+              type='text'
+              name='title'
+              id='title'
+              value='{{todo.title}}'
+            />
+          </div>
+          <div class='mb-3'>
+            <label for='description'>Description</label>
+            <textarea
+              class='form-control rounded-0 bg-dark text-light'
+              name='description'
+              id='description'
+              cols='30'
+              rows='10'
+            >
+              {{todo.description}}
+            </textarea>
+          </div>
+          <button class='btn btn-primary' type='submit'>Save</button>
+        </form>
+
+      </div>
+    </div>
   </div>
-  <div>
-    <label for='description'>Description</label>
-    <textarea name='description' id='description' cols='30' rows='10'>
-      {{todo.description}}
-    </textarea>
-  </div>
-  <button type='submit'>Save</button>
-</form>
+</div>

@@ -4,13 +4,17 @@ import { TaskModel } from '../models/Task';
 export const saveTodo = async function (req = request, res = response) {
   const { id } = req.params;
   const { title, description } = req.body;
-  try {
-    const task = id
-      ? await TaskModel.findByIdAndUpdate(id, { title, description })
-      : await TaskModel({ title, description }).save();
+  if (description && title) {
+    try {
+      const task = id
+        ? await TaskModel.findByIdAndUpdate(id, { title, description })
+        : await TaskModel({ title, description }).save();
+      return res.redirect('/');
+    } catch (error) {
+      console.log(error);
+    }
+  } else {
     return res.redirect('/');
-  } catch (error) {
-    console.log(error);
   }
 };
 

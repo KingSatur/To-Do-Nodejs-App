@@ -1,11 +1,20 @@
-<form action='api/todo/' method='post'>
-  <div>
-    <label for='title'>Title</label>
-    <input type='text' name='title' id='title' />
-  </div>
-  <div>
-    <label for='description'>Description</label>
-    <textarea name='description' id='description' cols='30' rows='10'></textarea>
-  </div>
-  <button type='submit'>Add</button>
-</form>
+<div class='card card-body p-4 rounded-0 bg-dark text-light'>
+  <h3>Add a ToDo</h3>
+  <form action='api/todo/' method='post'>
+    <div>
+      <label for='title'>Title</label>
+      <input class='form-control rounded-0 bg-dark text-light' type='text' name='title' id='title' />
+    </div>
+    <div>
+      <label for='description'>Description</label>
+      <textarea
+        class='form-control rounded-0 bg-dark text-light'
+        name='description'
+        id='description'
+        cols='30'
+        rows='10'
+      ></textarea>
+    </div>
+    <button class='btn btn-primary btn-sm mt-2' type='submit'>Add</button>
+  </form>
+</div>

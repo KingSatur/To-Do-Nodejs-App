@@ -2,7 +2,8 @@
 //babel --> Compilar de javascript nuevo a javascript que los navegadores puedan entender
 
 import app from './app';
+import config from './config';
 
-app.listen(3000, () => {
+app.listen(config.PORT, () => {
   console.log('Execute');
 });

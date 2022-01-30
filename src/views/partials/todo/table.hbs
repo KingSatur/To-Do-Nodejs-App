@@ -1,36 +1,43 @@
-<table>
-  <thead>
-    <tr>
-      <th>N.</th>
-      <th>Title</th>
-      <th>Description</th>
-      <th>Operations</th>
-    </tr>
-  </thead>
-  <tbody>
-    {{#each todos}}
+{{#if todos}}
+  <table class='table table-bordered table-hover table-dark'>
+    <thead>
       <tr>
-        <td>
-          {{@index}}
-        </td>
-        <td>
-          {{title}}
-        </td>
-        <td>
-          <p>{{description}}</p>
-        </td>
-        <td>
-          {{#if done}}
-            <a href='/api/todo/{{_id}}/toggle'>Undone</a>
-          {{else}}
-            <a href='/api/todo/{{_id}}/toggle'>Done</a>
-          {{/if}}
-          <a href='/edit/{{_id}}'>Edit</a>
-          <a href='/api/todo/{{_id}}'>Delete</a>
-
-        </td>
+        <th>N.</th>
+        <th>Title</th>
+        <th>Description</th>
+        <th>Operations</th>
       </tr>
-    {{/each}}
-  </tbody>
-
-</table>
+    </thead>
+    <tbody>
+      {{#each todos}}
+        <tr>
+          <td>
+            {{@index}}
+          </td>
+          <td>
+            {{title}}
+          </td>
+          <td>
+            <p>{{description}}</p>
+          </td>
+          <td>
+            {{#if done}}
+              <a class='btn btn-secondary' href='/api/todo/{{_id}}/toggle'>Undone</a>
+            {{else}}
+              <a class='btn btn-success' href='/api/todo/{{_id}}/toggle'>Done</a>
+            {{/if}}
+            <a class='btn btn-primary' href='/edit/{{_id}}'>Edit</a>
+            <a class='btn btn-danger' href='/api/todo/{{_id}}'>Delete</a>
+          </td>
+        </tr>
+      {{/each}}
+    </tbody>
+  </table>
+{{else}}
+  <div class='h-100 d-flex align-items-center justify-content-center'>
+    <div class='text-center text-dark'>
+      <h1>There are not toDos to reviews</h1>
+      <img src='/icons/empty.svg' class='w-75' alt='' />
+    </div>
+  </div>
+{{/if}}
